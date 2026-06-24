@@ -500,6 +500,18 @@ p {
     font-size: 1.05rem;
 }
 
+/* Auto-flip animation on scroll to indicate interactivity */
+@keyframes hintFlip {
+    0% { transform: rotateY(0deg); }
+    20% { transform: rotateY(180deg); }
+    80% { transform: rotateY(180deg); }
+    100% { transform: rotateY(0deg); }
+}
+
+.flip-card.hint-flip .flip-card-inner {
+    animation: hintFlip 3s ease-in-out forwards;
+}
+
 /* ==========================================================================
    Work / Portfolio Section
    ========================================================================== */

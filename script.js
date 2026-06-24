@@ -246,6 +246,24 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
         
+        // Auto-flip hint for services cards
+        const flipCards = document.querySelectorAll('.flip-card');
+        flipCards.forEach((card, index) => {
+            ScrollTrigger.create({
+                trigger: card,
+                start: "top 85%",
+                once: true,
+                onEnter: () => {
+                    setTimeout(() => {
+                        card.classList.add('hint-flip');
+                        setTimeout(() => {
+                            card.classList.remove('hint-flip');
+                        }, 3000);
+                    }, (index % 4) * 200); // Stagger by column
+                }
+            });
+        });
+
         // Parallax effect for section backgrounds
         gsap.utils.toArray('.section').forEach(section => {
             gsap.to(section, {
